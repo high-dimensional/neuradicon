@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "neuradicon"
+dynamic = ["version"]
+description = 'A natural language processing pipeline for neuroradiological reports'
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+keywords = ["NLP", "neuroradiology"]
+authors = [
+  { name = "Henry Watkins", email = "h.watkins@ucl.ac.uk" },
+]
+classifiers = [  "Programming Language :: Python"]
+
+dependencies = [
+  "spacy",
+  "transformers",
+  "torch",
+  "scikit-learn",
+  "pandas",
+  "numpy",
+  "negspacy",
+  "numba",
+  "neurocluster",# @ {home:uri}/Desktop/neurocluster/dist/neurocluster-0.0.1-py3-none-any.whl",
+  "neurollm",# @ {home:uri}/Desktop/neurollm/dist/neurollm-0.0.1-py3-none-any.whl",
+]
+
+[project.urls]
+#Documentation = "https://github.com/unknown/neuradicon#readme"
+#Issues = "https://github.com/unknown/neuradicon/issues"
+#Source = "https://github.com/unknown/neuradicon"
+
+[tool.hatch.version]
+path = "src/neuradicon/__about__.py"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.envs.default]
+dependencies = [
+  "pytest",
+  "black",
+  "isort",
+]
+[tool.hatch.envs.default.scripts]
+test = "pytest --disable-warnings tests"
+fmt = "black . ; isort ."
+clean = 'find . | grep -E "(/__pycache__$|\.pyc$|\.pyo$)" | xargs rm -rf'
