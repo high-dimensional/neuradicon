@@ -351,14 +351,14 @@ def tp_condition_ent(e):
 
 
 def fp_condition_ent(e):
-    if not ((e.label_ == "PATHOLOGY")):
+    if not (e.label_ == "PATHOLOGY"):
         if e._.domain:
             return True
     return False
 
 
 def tn_condition_ent(e):
-    if not ((e.label_ == "PATHOLOGY")):
+    if not (e.label_ == "PATHOLOGY"):
         if not e._.domain:
             return True
     return False

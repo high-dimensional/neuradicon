@@ -1,6 +1,4 @@
-"""Preprocessing utility functions for neuradicon
-"""
-
+"""Preprocessing utility functions for neuradicon"""
 
 import random
 import re

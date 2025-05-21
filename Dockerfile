@@ -13,7 +13,5 @@ COPY ./dist /app/dist
 COPY ./model_dir /app/model_dir
 COPY ./examples /app/examples
 
-RUN pip install dist/neurocluster-0.0.1-py3-none-any.whl
-RUN pip install dist/neurollm-0.0.1-py3-none-any.whl
 RUN pip install dist/neuradicon-0.0.1-py3-none-any.whl
 

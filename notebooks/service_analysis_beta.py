@@ -3,6 +3,7 @@
 
 This script runs analysis of radiological service usage
 """
+
 # %%
 from pathlib import Path
 
@@ -66,7 +67,7 @@ def transform_data(data, start_date, end_date):
                 bins=[10 * i for i in range(11)],
                 right=False,
                 include_lowest=True,
-                labels=[f"{10 * i}-{10*i+9}" for i in range(10)],
+                labels=[f"{10 * i}-{10 * i + 9}" for i in range(10)],
             )
         )
         .assign(date=lambda x: x["End Exam Date"].dt.date)

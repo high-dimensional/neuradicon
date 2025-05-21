@@ -4,6 +4,7 @@
 Plots of the embeddings for visualizations for paper
 
 """
+
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -51,7 +52,7 @@ def plot_categorical(data_to_plot, column, output_loc, grey_value="", filetype="
             y="_Y",
             hue=column,
             ax=ax,
-            alpha=0.1,
+            alpha=0.5,
             s=10,
             palette="Greys",
         )
@@ -81,7 +82,9 @@ def plot_categorical(data_to_plot, column, output_loc, grey_value="", filetype="
     scat.set(ylabel="latent dimension 2")
     plt.tight_layout()
     fig.savefig(
-        output_loc / f"embedding_scatter_{column}.{filetype}", bbox_inches="tight"
+        output_loc / f"embedding_scatter_{column}.{filetype}",
+        bbox_inches="tight",
+        dpi=500,
     )
     plt.close()
 
@@ -102,9 +105,9 @@ def plot_continuous(data_to_plot, column, output_loc, filetype="png"):
 
 
 # %% load
-ROOT = Path("DATAPATH/Desktop/")
+ROOT = Path("/home/hwatkins/Desktop/")
 INPUT = ROOT / "prior-datasets/processed_reports/reports_with_embedding.csv"
-OUTDIR = Path("DATAPATH/Dropbox/nlp_project/pipeline_paper/paper_images_v4")
+OUTDIR = Path("/home/hwatkins/Dropbox/nlp_project/pipeline_paper/paper_images_v5")
 FILETYPE = "png"
 data = load_input(INPUT)
 transformed_data = transform_data(data)
@@ -321,21 +324,22 @@ def neoplasm_classes(df):
     classes = pd.Series("not neoplastic", index=df.index)
     classes[df["asserted-pathology-neoplastic-paraneoplastic"] > 0] = "other neoplastic"
     has_schwanoma = (
-        df["report_body_masked"].str.contains("schwannoma", case=False)
+        df["report_body_masked"].str.contains("glioblastoma", case=False)
     ) & (df["asserted-pathology-neoplastic-paraneoplastic"] > 0)
-    has_glioma = (df["report_body_masked"].str.contains("glioma", case=False)) & (
+    has_glioma = (df["report_body_masked"].str.contains("astrocytoma", case=False)) & (
         df["asserted-pathology-neoplastic-paraneoplastic"] > 0
     )
     has_meningioma = (
-        df["report_body_masked"].str.contains("meningioma", case=False)
+        df["report_body_masked"].str.contains("oligodendroglioma", case=False)
     ) & (df["asserted-pathology-neoplastic-paraneoplastic"] > 0)
-    classes[has_schwanoma] = "schwannoma"
-    classes[has_glioma] = "glioma"
-    classes[has_meningioma] = "meningioma"
+    classes[has_schwanoma] = "glioblastoma"
+    classes[has_glioma] = "astrocytoma"
+    classes[has_meningioma] = "oligodendroglioma"
     return classes
 
 
 neo_type = transformed_data.assign(neoplastic_types=neoplasm_classes)
+print(neo_type["neoplastic_types"].value_counts())
 plot_categorical(
     neo_type, "neoplastic_types", OUTDIR, grey_value="not neoplastic", filetype=FILETYPE
 )

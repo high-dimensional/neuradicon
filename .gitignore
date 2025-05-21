@@ -28,3 +28,4 @@ build/
 
 model_dir/
 test_data/
+models-llm/

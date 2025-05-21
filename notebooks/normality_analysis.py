@@ -4,6 +4,7 @@
 This script produces histograms for the normality class counts. It also produces histograms for the
 number of longitudinal scans per patient, stratified by pathology class
 """
+
 import argparse
 from pathlib import Path
 

@@ -4,6 +4,7 @@ agreement is between the contrast label and the label has_a_T1CE,
 which you can generate from just listing the jsons in
 /BRC3/data_for_multimodal_model_uncropped/xnat_registered_affine_2mm and checking for a T1CE field
 """
+
 import json
 from pathlib import Path
 
@@ -77,9 +78,10 @@ has_label = has_label.assign(new_contrast=uses_contrast_)
 # %%
 has_label["new_contrast"] = contrast
 # %%
-true, pred = has_label["json_contrast_label"].astype(int), has_label[
-    "new_contrast"
-].astype(int)
+true, pred = (
+    has_label["json_contrast_label"].astype(int),
+    has_label["new_contrast"].astype(int),
+)
 confmat = confusion_matrix(true, pred)
 tn, fp, fn, tp = confusion_matrix(true, pred).ravel()
 print((tn, fp, fn, tp))

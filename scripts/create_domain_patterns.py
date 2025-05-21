@@ -1,4 +1,5 @@
-"""Combine domain patterns dictionaries """
+"""Combine domain patterns dictionaries"""
+
 # %%
 import json
 from pathlib import Path

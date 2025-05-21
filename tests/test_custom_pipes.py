@@ -15,4 +15,15 @@ from spacy.tokens import Doc
 # }
 # ref_doc.cats = ref_classes
 #
-# report_sample = []
+report_sample = [
+    {
+        "text": "Hello everyone. The quick brown fox jumped over the lazy dog",
+        "cats": {
+            "STOCK": 1.0,
+            "DEFACTO": 0.0,
+            "ABNORMAL": 0.0,
+            "CONTEXTUAL": 0.0,
+            "INCIDENTAL": 0.0,
+        },
+    }
+]

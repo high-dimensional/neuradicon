@@ -3,6 +3,7 @@
 This script is to extract the subset of reports of patients with DWI imaging, but specifically
 those who have a stroke rather than mild ischaemic changes such as small vessel disease
 """
+
 from pathlib import Path
 
 import pandas as pd

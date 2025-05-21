@@ -5,6 +5,7 @@ Plots of the embeddings for visualizations for paper.
 Specifically the nifti SPM outputs from geoSPM
 
 """
+
 from pathlib import Path
 
 import matplotlib.pyplot as plt

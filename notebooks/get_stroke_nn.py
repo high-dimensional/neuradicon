@@ -4,6 +4,7 @@ Use patients from pdf/ssnap datasets who are known to have strokes,
 then find their locations in the latent space, and find similar reports
 to those patients.
 """
+
 from pathlib import Path
 
 import matplotlib.pyplot as plt

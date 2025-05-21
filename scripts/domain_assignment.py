@@ -55,14 +55,14 @@ def tp_condition_ent(e, label):
 
 
 def fp_condition_ent(e, label):
-    if not ((e.label_ == label)):
+    if not (e.label_ == label):
         if e._.domain:
             return True
     return False
 
 
 def tn_condition_ent(e, label):
-    if not ((e.label_ == label)):
+    if not (e.label_ == label):
         if not e._.domain:
             return True
     return False
