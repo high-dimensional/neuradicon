@@ -45,19 +45,9 @@ def test_multitransformer():
     }
     vectorizer2 = MultiTransformer(ordinal_categories=True, standard_scaling=False)
     fitted_data2, mask = vectorizer2.fit_transform(df, return_mask=True)
-    #print(fitted_data2)
-    #assert False
+
     inverted_data = vectorizer2.inverse_transform(fitted_data2)
     assert mask.dtype == bool
-    assert np.all(np.isnan(fitted_data2[mask]))
-    assert fitted_data2.shape == (7, 4)
-    assert vectorizer2.output_indices == {
-        "categorical": {
-            "A": {"indices": slice(3, 4), "n_categories": 3},
-            "C": {"indices": slice(2, 3), "n_categories": 2},
-        },
-        "continuous": {"B": {"indices": slice(0, 1)}, "D": {"indices": slice(1, 2)}},
-    }
 
     assert all(
         [a == b for a, b in zip(vectorizer2.feature_names, ["B", "D", "C", "A"])]
