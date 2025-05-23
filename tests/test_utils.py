@@ -14,9 +14,9 @@ texts = [
 @pytest.fixture
 def model():
     model_loc = "./model_dir/clinical_entity_model"
-    tokenizer_name = model_loc +"/basemodel"
-    ner_name = model_loc +"/ner-fine-tuned"
-    neg_name = model_loc +"/negation"
+    tokenizer_name = model_loc + "/basemodel"
+    ner_name = model_loc + "/ner-fine-tuned"
+    neg_name = model_loc + "/negation"
     neuro_pipeline = NeuroPipeline(
         ner_name,
         neg_name,
@@ -44,7 +44,7 @@ def test_neuro_pipeline(model):
 
 def test_sectioner():
     model = "./model_dir/section_model"
-    tokenizer = model +"/basemodel"
+    tokenizer = model + "/basemodel"
     model = model + "/segmentation"
     sectioner = Sectioner(model, tokenizer)
     big_texts = [texts[0] for i in range(100)]

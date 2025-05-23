@@ -47,9 +47,11 @@ def sample_data(data, size):
 
 def convert_ents(doc):
     new_ents = [
-        Span(doc, e.start, e.end, label="negated")
-        if e._.negex
-        else Span(doc, e.start, e.end, label="asserted")
+        (
+            Span(doc, e.start, e.end, label="negated")
+            if e._.negex
+            else Span(doc, e.start, e.end, label="asserted")
+        )
         for e in doc.ents
     ]
     doc.ents = new_ents
@@ -60,9 +62,11 @@ def get_ner_labels(docs):
     """extract the tokens and ner labels for a set of space docs"""
     get_tags_tokens = lambda x: dict(zip(["ner_tags", "tokens"], list(zip(*x))))
     get_items = lambda x: (
-        (w.ent_iob_ + "-" + w.ent_type_, w.text)
-        if w.ent_type_
-        else (w.ent_iob_, w.text)
+        (
+            (w.ent_iob_ + "-" + w.ent_type_, w.text)
+            if w.ent_type_
+            else (w.ent_iob_, w.text)
+        )
         for w in x
     )
     all_tags_tokens = [

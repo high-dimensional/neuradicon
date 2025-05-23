@@ -7,18 +7,18 @@ import pickle
 from abc import ABC, abstractmethod
 from pathlib import Path
 
+import numpy as np
 import spacy
+import torch
 from negspacy.negation import Negex
 from tqdm import tqdm
 from transformers import (AutoModelForSequenceClassification, AutoTokenizer,
                           pipeline)
 
-from neuradicon.custom_pipes import RelationExtractor, ArtefactChecker
+from neuradicon.custom_pipes import ArtefactChecker, RelationExtractor
 from neurocluster.predictors import AE
 from neurocluster.vectorizers import EntityCountVectorizer, FeatureClusterer
 from neurollm.utils import DocConverter, NeuroPipeline, Sectioner, minibatch
-import torch
-import numpy as np
 
 BATCH_SIZE = 32
 

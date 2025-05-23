@@ -435,6 +435,3 @@ def remove_commentary(doc, classes_to_remove=["location-spine", "location-ent"])
         if not any([e.label_ in classes_to_remove for e in s.ents])
     ]
     return " ".join(sentences_to_keep)
-
-
-

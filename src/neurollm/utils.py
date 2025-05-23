@@ -82,7 +82,9 @@ class Sectioner:
         self.device = torch.device(device)
         self.batch_size = batch_size
         self.model = (
-            AutoModelForTokenClassification.from_pretrained(model, local_files_only=True)
+            AutoModelForTokenClassification.from_pretrained(
+                model, local_files_only=True
+            )
             .eval()
             .to(self.device)
         )
