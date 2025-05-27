@@ -4,9 +4,7 @@ from spacy.tokens import Doc
 from neurollm.utils import *
 
 texts = [
-    "7210825 20/02/2018 MR Head 7210825 20/02/2018 Imaging under GA 7210825 20/02/2018 MR MRA Clinical Indication: Stroke patient thrombolysed 19/02/18. Low GCS I+V to ICU NOTE: Patient likely I+V On ICU Findings: Reference made to CT scan dated 19/02/18. No foci of restricted diffusion to suggest infarction. No evidence of haemorrhage and no focal mass lesion. The irregularity of M1 segment of the left middle cerebral artery is not well demonstrated on TOF-MRI. Normal flow-related signal is seen in the imaged portions of ICA, vertebral arteries and intracranial arteries. Conclusion: No evidence of infarction. GC Dr P S Rangi Consultant Neuroradiologist GMC NO: 4189686 Email: neurorad.uclh.nhs.uk",
-    "Clinical Indications for MRI - White matter lesions on earlier scan has phospholipuid syndrome but ? MS Will need contrast Findings: Comparison is made with the previous scan performed 6 April 2016. Stable appearances of the diffuse and confluent bilateral white matter high T2/FLAIR signal changes. A few more conspicuous focal lesions in the periventricular and juxta-cortical white matter are again demonstrated and unchanged. There is no evidence of signal changes in the posterior fossa structures. The imaged cervical cord returns normal signal. There is no evidence of pathological enhancement. Summary: Stable appearances of the supratentorial white matter signal changes. Although some lesions appear more conspicuous in the periventricular and juxtacortical regions, there is no significant lesion burden to characterise dissemination in space at this time point. Dr Kelly Pegoretti Consultant Neuroradiologist email: neurorad@uclh.nhs.uk",
-    "words and more words",
+   "words and more words",
     "   ",
 ]
 
